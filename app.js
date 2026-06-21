@@ -270,3 +270,15 @@ loadRestaurants();
 createFilters();
 render();
 fitFilteredMarkers();
+
+// file://로 직접 열거나 반응형 레이아웃이 바뀔 때 Leaflet이 실제 크기를 다시 계산하게 합니다.
+window.addEventListener("load", () => {
+  window.setTimeout(() => {
+    map.invalidateSize();
+    fitFilteredMarkers();
+  }, 150);
+});
+
+window.addEventListener("resize", () => {
+  map.invalidateSize();
+});
