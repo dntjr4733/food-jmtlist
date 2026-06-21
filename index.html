@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="직접 다녀온 맛집과 가고 싶은 곳을 지도에서 기록하는 개인 맛집 지도"
+    />
+    <title>한입지도 | 나의 맛집 기록</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Gowun+Dodum&family=Nanum+Myeongjo:wght@700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+      integrity="sha256-p4NxAoJBhIINfQ3ynhWPDwRG9PHfh0cpZ4x48Zx0w3s="
+      crossorigin=""
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="brand" href="#" aria-label="한입지도 처음으로">
+        <span class="brand-mark">한입</span>
+        <span>
+          <strong>한입지도</strong>
+          <small>먹고, 기억하고, 다시 가는 곳</small>
+        </span>
+      </a>
+      <span class="header-note">나의 맛집 기록</span>
+    </header>
+
+    <main>
+      <section class="hero">
+        <p class="eyebrow">MY FOOD ARCHIVE</p>
+        <h1>좋았던 한 끼는<br /><em>지도에 남겨두기.</em></h1>
+        <p class="hero-copy">
+          직접 다녀온 곳부터 언젠가 가보고 싶은 곳까지,<br />
+          취향으로 채워가는 나만의 맛집 지도입니다.
+        </p>
+        <div class="stats" aria-label="맛집 통계">
+          <span><strong id="total-count">0</strong>곳의 기록</span>
+          <span><strong id="visited-count">0</strong>곳 방문</span>
+          <span><strong id="revisit-count">0</strong>곳 또 갈래요</span>
+        </div>
+      </section>
+
+      <section class="explorer" aria-label="맛집 탐색">
+        <div class="map-panel">
+          <div id="map" aria-label="맛집 지도"></div>
+          <div class="map-note">핀을 누르면 맛집 정보가 열려요</div>
+        </div>
+
+        <div class="list-panel">
+          <div class="tools">
+            <label class="search-box">
+              <span aria-hidden="true">⌕</span>
+              <input
+                id="search-input"
+                type="search"
+                placeholder="이름, 메뉴, 동네로 검색"
+                autocomplete="off"
+              />
+            </label>
+            <div class="filters" id="filters" aria-label="카테고리 필터"></div>
+          </div>
+          <div class="result-line">
+            <span id="result-count">0개의 장소</span>
+            <button id="fit-map" class="small-button" type="button">지도에 모두 보기</button>
+          </div>
+          <div class="restaurant-list" id="restaurant-list"></div>
+          <div class="empty-state" id="empty-state" hidden>
+            <span>🍽️</span>
+            <strong>찾는 맛집이 없어요</strong>
+            <p>검색어나 필터를 바꿔보세요.</p>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <p>오늘도 잘 먹었습니다. <span>♥</span></p>
+      <small>© 2026 한입지도 · OpenStreetMap contributors</small>
+    </footer>
+
+    <dialog id="detail-dialog" class="modal detail-modal">
+      <button class="modal-close" data-close="detail-dialog" type="button" aria-label="닫기">×</button>
+      <div id="detail-content"></div>
+    </dialog>
+
+    <template id="card-template">
+      <article class="restaurant-card" tabindex="0">
+        <div class="card-top">
+          <div>
+            <span class="category-badge"></span>
+            <span class="visit-badge"></span>
+          </div>
+          <span class="rating"></span>
+        </div>
+        <h3></h3>
+        <p class="area"></p>
+        <p class="menu"></p>
+        <div class="card-bottom">
+          <span class="price"></span>
+          <span class="more">기록 보기 →</span>
+        </div>
+      </article>
+    </template>
+
+    <script
+      src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+      integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+      crossorigin=""
+    ></script>
+    <script src="restaurants.js"></script>
+    <script src="app.js"></script>
+  </body>
+</html>
