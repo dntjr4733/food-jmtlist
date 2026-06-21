@@ -23,7 +23,7 @@ JavaScript 정적 파일만으로 작동하며 GitHub Pages에 바로 배포할 
   id: "unique-id",
   name: "맛집 이름",
   area: "서울 성수동",
-  category: "밥집", // 밥집, 카페, 술집, 디저트
+  category: "중식", // 한식, 일식, 중식, 카페-디저트, 기타
   rating: 4.8,
   recommendedMenu: "짬뽕",
   menus: [
@@ -50,6 +50,7 @@ JavaScript 정적 파일만으로 작동하며 GitHub Pages에 바로 배포할 
 ```
 
 - `id`는 다른 맛집과 겹치지 않게 작성합니다.
+- `category`는 `한식`, `일식`, `중식`, `카페-디저트`, `기타` 중 하나를 사용합니다.
 - 가고 싶은 곳은 `visited: false`로 설정합니다.
 - `menus`에는 메뉴를 원하는 만큼 추가할 수 있습니다.
 - 먹어본 메뉴는 `tried: true`, 아직 안 먹어본 메뉴는 `tried: false`로 적습니다.
@@ -57,6 +58,9 @@ JavaScript 정적 파일만으로 작동하며 GitHub Pages에 바로 배포할 
 - `recommendedMenu`에는 `menus`에 입력한 메뉴 중 하나의 이름을 똑같이 적습니다.
 - 위도와 경도는 지도 서비스에서 장소를 검색해 확인할 수 있습니다.
 - 파일을 수정해 GitHub에 다시 올리면 배포 사이트에도 반영됩니다.
+
+코드를 직접 수정하기 어렵다면 [`맛집-등록-양식.md`](맛집-등록-양식.md)의 양식을 복사해
+메모에 작성한 뒤 Codex에게 추가를 요청하면 됩니다.
 
 ## 로컬에서 확인하기
 
